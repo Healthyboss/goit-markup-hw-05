@@ -47,9 +47,6 @@
             </li>
           </ul>
         </address>
-        <button type="button" class="modal-btn" data-modal-open>
-          REJESTRACJA
-        </button>
       </div>
     </header>
     <main>
@@ -59,7 +56,9 @@
             <span>Effective Solutions</span> <br />
             for Your Business
           </h1>
-          <button type="button" class="button-order">Order Service</button>
+          <button type="button" class="button-order" data-modal-open>
+            Order Service
+          </button>
         </div>
       </section>
 
@@ -423,9 +422,13 @@
         </div>
       </div>
     </footer>
-    <div class="backdrop is-hidden" data-modal>
-      <div class="modal">
-        <button type="button" class="close-btn" data-model-close>X</button>
+    <div class="background-modal is-hidden" data-modal>
+      <div class="window-modal">
+        <button type="button" class="close-button" data-modal-close>
+          <svg width="8" height="8" class="icon-close-style">
+            <use href="./images/close-icon.svg#close-black-18dp (2) 1"></use>
+          </svg>
+        </button>
       </div>
     </div>
     <script src="./js/modal.js"></script>
