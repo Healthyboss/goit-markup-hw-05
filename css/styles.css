@@ -34,6 +34,8 @@ ol {
   --button-color: #e7e9fc;
   --logo-color: #8e8f99;
   --icon-color: #31d0aa;
+  --windowmodal-color: #fcfcfc;
+  --backgroundmodal-color: #2e2f4266;
 }
 
 body {
@@ -83,6 +85,7 @@ body {
 
 .contact {
   font-style: normal;
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .contact:hover,
 .contact:focus,
@@ -133,6 +136,7 @@ body {
   cursor: pointer;
   padding: 16px 32px;
   min-width: 169px;
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .button-order:hover,
@@ -227,6 +231,7 @@ body {
   cursor: pointer;
   padding: 12px 24px;
   border: 1px solid var(--button-color);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .button-portfolio:hover,
 .button-portfolio:focus,
@@ -331,6 +336,7 @@ body {
 }
 .item {
   flex-basis: calc((100% - 48px) / 3);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .item:hover {
   box-shadow: 0px 2px 1px 0px rgba(46, 47, 66, 0.08),
@@ -393,6 +399,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .social-link:hover,
 .social-link:focus {
@@ -418,6 +425,7 @@ body {
   color: var(--logo-color);
   border: 1px solid var(--logo-color);
   border-radius: 4px;
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .logocs:hover,
@@ -454,6 +462,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .social-link-footer:hover,
@@ -473,6 +482,7 @@ body {
 .appshadow {
   text-decoration: none;
   display: block;
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .appshadow:hover,
@@ -484,36 +494,98 @@ body {
 .icon-fill {
   fill: var(--background-color-second);
 }
-.backdrop {
+.background-modal {
   position: fixed;
   left: 0;
   top: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.1);
+  background-color: var(--backgroundmodal-color);
+  transition: oppacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
-.modal {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 528px;
-  min-height: 581px;
-  background-color: #ffff;
-}
-.close-btn {
-  position: absolute;
-  top: 8px;
-  right: 8px;
-  width: 30px;
-  height: 30px;
-  background-color: #ffff;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  border-radius: 50%;
-  cursor: pointer;
-}
+
 .is-hidden {
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
+}
+.window-modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1);
+  width: 408px;
+  min-height: 584px;
+  background-color: var(--windowmodal-color);
+  box-shadow: 0px 2px 1px 0px rgba(0, 0, 0, 0.2),
+    0px 1px 3px 0px rgba(0, 0, 0, 0.12), 0px 1px 1px 0px rgba(0, 0, 0, 0.14);
+
+  border-radius: 4px;
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.close-button {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  width: 24px;
+  height: 24px;
+  background-color: var(--button-color);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 0;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    border cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.close-button:hover,
+.close-button:focus {
+  background-color: var(--active-color);
+  border: none;
+}
+.icon-close-style {
+  top: 8px;
+  left: 8px;
+  fill: var(--brand-color);
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.close-button:hover .icon-close-style,
+.close-button:focus .icon-close-style {
+  fill: var(--background-color);
+}
+
+.blue-text {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  padding: 40px 32px 0 32px;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  text-align: justify;
+  background-color: var(--normal-color);
+  color: var(--background-color-second);
+  transform: translateY(0);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.blue-card {
+  position: relative;
+  overflow: hidden;
+}
+.blue-card:hover .blue-text,
+.blue-card:focus .blue-text {
+  transform: translateY(-100%);
+}
+
+.link-active::after {
+  margin-top: 20px;
+  width: 100%;
+  height: 4px;
+  background-color: var(--active-color);
+  border-radius: 2px;
 }
